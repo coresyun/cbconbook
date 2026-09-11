@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>입주기업 콘텐츠북 2026 | 충북콘텐츠기업지원센터</title>
+  <meta name="description" content="충북콘텐츠기업지원센터 7개 분야, 19개 입주기업의 이야기를 전자책으로 만나보세요.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/page-flip.browser.css?v=shadow-20260910-2">
+  <link rel="stylesheet" href="design-tokens.css">
+  <link rel="stylesheet" href="style.css?v=shadow-20260910-2">
+</head>
+<body>
+<header class="topbar">
+  <div class="identity"><span class="brand-line"></span><div><span class="institution">충북콘텐츠기업지원센터</span><h1>입주기업 콘텐츠북 <span>2026</span></h1></div></div>
+  <div class="header-actions"><button id="search-open" class="tool" aria-label="본문 검색" title="본문 검색"><span data-icon="search"></span><span class="wide-label">검색</span></button><button id="share" class="tool" aria-label="현재 페이지 링크 복사" title="현재 페이지 링크 복사"><span data-icon="share"></span><span class="wide-label">공유</span></button><button id="fullscreen" class="tool" aria-label="전체 화면" title="전체 화면"><span data-icon="fullscreen"></span></button></div>
+</header>
+<div class="workspace">
+  <aside id="sidebar" aria-label="전자책 탐색" hidden>
+    <div class="sidebar-head"><h2 id="panel-title">목차</h2><button class="tool" id="panel-close" aria-label="탐색창 닫기"><span data-icon="close"></span></button></div>
+    <div class="panel-tabs" role="tablist" aria-label="탐색 방식"><button role="tab" id="tab-toc" aria-controls="toc" aria-selected="true" data-panel="toc">목차</button><button role="tab" id="tab-thumbs" aria-controls="thumbs" aria-selected="false" data-panel="thumbs" tabindex="-1">전체 페이지</button><button role="tab" id="tab-search" aria-controls="search-panel" aria-selected="false" data-panel="search" tabindex="-1">검색</button></div>
+    <nav id="toc" role="tabpanel" aria-labelledby="tab-toc" class="panel-content"></nav>
+    <div id="thumbs" role="tabpanel" aria-labelledby="tab-thumbs" class="panel-content thumb-grid" hidden></div>
+    <div id="search-panel" role="tabpanel" aria-labelledby="tab-search" class="panel-content" hidden><label for="query">기업명 또는 본문 검색</label><div class="search-box"><span data-icon="search"></span><input id="query" type="search" placeholder="예: 미디어아트" autocomplete="off"></div><p class="search-info" id="search-count" aria-live="polite">찾고 싶은 단어를 입력하세요.</p><div id="results"></div></div>
+  </aside>
+  <main id="reader" aria-label="전자책 읽기">
+    <div class="reading-meta"><span id="section-name">앞표지</span><span id="view-mode">펼쳐 보기</span></div>
+    <div id="stage"><div id="book-host"><div id="book"><div class="page" data-density="hard"><img src="assets/pages/01.jpg?v=8b8f6006f401" alt="입주기업 콘텐츠북 앞표지"></div></div></div></div>
+    <button id="prev-edge" class="edge prev" aria-label="이전 페이지" title="이전 페이지"><span data-icon="left"></span></button><button id="next-edge" class="edge next" aria-label="다음 페이지" title="다음 페이지"><span data-icon="right"></span></button>
+    <p class="hint" id="hint">모서리를 끌거나 화살표로 페이지를 넘겨보세요</p>
+  </main>
+</div>
+<footer class="toolbar">
+  <div class="tools-left"><button class="tool" id="toc-open" aria-label="목차 열기" aria-expanded="false" aria-controls="sidebar"><span data-icon="list"></span><span class="wide-label">목차</span></button><button class="tool" id="thumbs-open" aria-label="전체 페이지 보기" aria-expanded="false" aria-controls="sidebar"><span data-icon="grid"></span></button><span class="separator"></span><button class="tool" id="autoplay" aria-label="자동 넘김 시작" aria-pressed="false" title="자동 넘김"><span data-icon="play"></span></button></div>
+  <div class="paging"><button class="tool endpoint" id="first" aria-label="첫 페이지"><span data-icon="first"></span></button><button class="tool" id="prev" aria-label="이전 페이지"><span data-icon="left"></span></button><form id="page-form"><label class="sr-only" for="page-input">이동할 페이지 번호</label><input id="page-input" type="number" min="1" max="64" value="1" inputmode="numeric"><span id="page-range">/ 64</span><button class="sr-only" type="submit">이동</button></form><button class="tool" id="next" aria-label="다음 페이지"><span data-icon="right"></span></button><button class="tool endpoint" id="last" aria-label="마지막 페이지"><span data-icon="last"></span></button></div>
+  <div class="tools-right"><button class="tool" id="text-open" aria-label="현재 페이지 텍스트 읽기" title="텍스트 읽기"><span data-icon="text"></span></button><button class="tool" id="zoom-open" aria-label="확대해서 읽기" title="확대해서 읽기"><span data-icon="zoom"></span><span class="wide-label">확대</span></button><button class="tool desktop-only" id="print" aria-label="현재 페이지 인쇄" title="현재 페이지 인쇄"><span data-icon="print"></span></button></div>
+  <input id="progress" class="progress" type="range" min="1" max="64" value="1" aria-label="페이지 이동">
+</footer>
+<dialog id="zoom-dialog" aria-label="페이지 확대"><div class="dialog-top"><span id="zoom-label">확대해서 읽기</span><div><button class="tool" id="zoom-out" aria-label="축소"><span data-icon="minus"></span></button><span id="zoom-level">150%</span><button class="tool" id="zoom-in" aria-label="확대"><span data-icon="plus"></span></button><button class="tool" id="zoom-close" aria-label="확대 닫기"><span data-icon="close"></span></button></div></div><div id="zoom-scroll"><div id="zoom-pages"></div></div><div class="zoom-footer"><button class="tool" id="zoom-prev" aria-label="확대 보기 이전 페이지"><span data-icon="left"></span></button><span>스크롤하여 자세히 읽어보세요</span><button class="tool" id="zoom-next" aria-label="확대 보기 다음 페이지"><span data-icon="right"></span></button></div></dialog>
+<dialog id="text-dialog" aria-labelledby="text-title"><div class="dialog-top"><h2 id="text-title">본문 텍스트</h2><button class="tool" id="text-close" aria-label="텍스트 닫기"><span data-icon="close"></span></button></div><div id="text-content"></div></dialog>
+<div id="toast" role="status"></div><div id="announcer" class="sr-only" aria-live="polite"></div><div id="print-pages" aria-hidden="true"></div>
+<noscript>전자책을 읽으려면 브라우저에서 JavaScript를 켜주세요.</noscript>
+<script src="vendor/page-flip.browser.js?v=shadow-20260910-2"></script><script src="book-data.js?v=8b8f6006f401"></script><script src="app.js?v=shadow-20260910-2"></script>
+</body></html>
